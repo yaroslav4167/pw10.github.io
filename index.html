@@ -1,0 +1,70 @@
+<head>
+	<title>PW-10</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script type="text/javascript" src="js/main.js?v=4" defer></script>
+	<script type="text/javascript" src="js/charts.js"></script>
+	<!--link type="text/css" rel="stylesheet" href="css/mini-nord.css"-->
+	<style>
+	@media (min-width: 768px) {
+		#nav-drawer h3 {
+			display: none;
+		}
+	}
+	#nav-drawer h3 {
+		padding: 0.5rem;
+	}
+	#content {
+	  display: table-cell;
+	  padding: 0 10px;
+	}
+	#nav-drawer {
+	  display: table-cell;
+	  height: 1080px;
+	}
+	#l-gui {
+	  min-height: 100%;
+	  width: 100%;
+	}
+	.cpointer {
+	  cursor: pointer;
+	}
+	</style>
+</head>
+<body style="margin: 0;">
+<!--Logged-->
+
+	<div id='l-gui'>
+		<h2>Задача:</h2>
+		<hr>
+		<p>Вводятся координаты прямоугольника и указанного треугольника, катеты которого параллельны осям координат. Если они пересекаются, определить площадь пересечения.</p>
+		<hr>
+				<h2>Координаты прямоугольника:</h2>
+				<hr>
+				<p>
+					<b>X1:</b><input type='number' step='0.01' placeholder='0.00' v-model="rectCords.p1[0]" />
+					<b>Y1:</b><input type='number' step='0.01' placeholder='0.00' v-model="rectCords.p1[1]" />
+					<br>
+					<b>X2:</b><input type='number' step='0.01' placeholder='0.00' v-model="rectCords.p4[0]" />
+					<b>Y2:</b><input type='number' step='0.01' placeholder='0.00' v-model="rectCords.p4[1]" />
+				</p>
+				<h2>Координаты треугольника:</h2>
+				<hr>
+				<p>
+					<b>X3:</b><input type='number' step='0.01' placeholder='0.00' v-model="triangleCords.p1[0]" />
+					<b>Y3:</b><input type='number' step='0.01' placeholder='0.00' v-model="triangleCords.p1[1]" />
+					<br>
+					<b>X4:</b><input type='number' step='0.01' placeholder='0.00' v-model="triangleCords.p3[0]" />
+					<b>Y4:</b><input type='number' step='0.01' placeholder='0.00' v-model="triangleCords.p3[1]" />
+				</p>
+				<button @click="calculate()" class="primary">Рассчитать площадь пересечения</button>
+				<h2>Результат</h2>
+				<hr>
+				{{debug}}
+				<pre>{{result}}</pre>
+				<div id='chart_div'></div>
+			</div>
+	<footer>
+	  <p>© 2019 LW-10</p>
+	</footer>
+</body>
